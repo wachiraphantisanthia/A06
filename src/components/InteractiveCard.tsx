@@ -17,9 +17,9 @@ className={`rounded-xl bg-white overflow-hidden transition-all duration-300
       ${isHovered ? 'shadow-2xl scale-[1.02]' : 'shadow-lg'} 
       ${className}`}
 style={{
-boxShadow: isHovered
-? '0 25px 60px rgba(0,0,0,0.35)'
-: '0 10px 25px rgba(0,0,0,0.25)'
+  boxShadow: isHovered
+    ? '0 25px 70px rgba(255,255,255,0.6)'
+    : '0 10px 35px rgba(255,255,255,0.35)'
 }}
 onMouseEnter={() => setIsHovered(true)}
 onMouseLeave={() => setIsHovered(false)}

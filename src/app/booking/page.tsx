@@ -13,11 +13,13 @@ import DateReserve from '@/components/DateReserve'
 import { Dayjs } from 'dayjs'
 
 export default function BookingPage() {
+
   const [formData, setFormData] = useState({
     nameLastname: '',
     contactNumber: '',
     venue: ''
   })
+
   const [date, setDate] = useState<Dayjs | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,96 +28,130 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-white text-center mb-8">
-          Book Venue
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black py-20 px-4">
+
+      <div className="max-w-3xl mx-auto">
+
+        {/* TITLE */}
+        <h1 className="text-4xl font-bold text-white text-center mb-10">
+          Book Your Venue
         </h1>
-        
-        <form onSubmit={handleSubmit} className="space-y-6 bg-gray-800 p-8 rounded-lg">
+
+        {/* FORM CARD */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white/10 backdrop-blur-lg border border-gray-700 rounded-2xl shadow-2xl p-10 space-y-8"
+        >
+
+          {/* NAME + PHONE */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
             <TextField
-              name="Name-Lastname"
-              label="Name-Lastname"
+              label="Name - Lastname"
               variant="standard"
               fullWidth
               value={formData.nameLastname}
-              onChange={(e) => setFormData({ ...formData, nameLastname: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, nameLastname: e.target.value })
+              }
               InputLabelProps={{ style: { color: '#e5e7eb' } }}
               inputProps={{ style: { color: '#e5e7eb' } }}
               sx={{
                 '& .MuiInput-underline:before': { borderBottomColor: '#e5e7eb' },
                 '& .MuiInput-underline:hover:before': { borderBottomColor: '#e5e7eb' },
-                '& .MuiInput-underline:after': { borderBottomColor: '#e5e7eb' }
+                '& .MuiInput-underline:after': { borderBottomColor: '#6366f1' }
               }}
             />
-            
+
             <TextField
-              name="Contact-Number"
-              label="Contact-Number"
+              label="Contact Number"
               variant="standard"
               fullWidth
               value={formData.contactNumber}
-              onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, contactNumber: e.target.value })
+              }
               InputLabelProps={{ style: { color: '#e5e7eb' } }}
               inputProps={{ style: { color: '#e5e7eb' } }}
               sx={{
                 '& .MuiInput-underline:before': { borderBottomColor: '#e5e7eb' },
                 '& .MuiInput-underline:hover:before': { borderBottomColor: '#e5e7eb' },
-                '& .MuiInput-underline:after': { borderBottomColor: '#e5e7eb' }
+                '& .MuiInput-underline:after': { borderBottomColor: '#6366f1' }
               }}
             />
+
           </div>
 
-          <FormControl fullWidth variant="standard" sx={{ mb: 4 }}>
-            <InputLabel id="venue-label" style={{ color: '#e5e7eb' }}>Select=id=venue</InputLabel>
+          {/* VENUE SELECT */}
+          <FormControl fullWidth variant="standard">
+            <InputLabel
+              id="venue-label"
+              style={{ color: '#e5e7eb' }}
+            >
+              Select Venue
+            </InputLabel>
+
             <Select
-              id="venue"
-              label="Select=id=venue"
               value={formData.venue}
-              onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
               labelId="venue-label"
+              onChange={(e) =>
+                setFormData({ ...formData, venue: e.target.value })
+              }
               sx={{
                 color: '#e5e7eb',
                 '& .MuiInput-underline:before': { borderBottomColor: '#e5e7eb' },
                 '& .MuiInput-underline:hover:before': { borderBottomColor: '#e5e7eb' },
-                '& .MuiInput-underline:after': { borderBottomColor: '#e5e7eb' },
+                '& .MuiInput-underline:after': { borderBottomColor: '#6366f1' },
                 '& .MuiSvgIcon-root': { color: '#e5e7eb' }
               }}
             >
+
               <MenuItem value="Bloom">The Bloom Pavilion</MenuItem>
               <MenuItem value="Spark">Spark Space</MenuItem>
               <MenuItem value="GrandTable">The Grand Table</MenuItem>
+
             </Select>
           </FormControl>
 
-          <div className="mb-6">
-            <p className="text-gray-300 mb-2">Date</p>
+          {/* DATE */}
+          <div>
+            <p className="text-gray-300 mb-3 text-sm">
+              Select Date
+            </p>
+
             <DateReserve value={date} onChange={setDate} />
           </div>
 
-          <div className="text-center">
+          {/* BUTTON */}
+          <div className="text-center pt-4">
+
             <Button
               type="submit"
-              name="Book Venue"
               variant="contained"
               size="large"
               sx={{
-                backgroundColor: '#6366f1',
+                backgroundColor: '#4f46e5',
                 color: 'white',
-                padding: '12px 48px',
-                fontSize: '16px',
-                borderRadius: '24px',
+                padding: '14px 60px',
+                fontSize: '18px',
+                borderRadius: '30px',
+                boxShadow: '0 10px 40px rgba(79,70,229,0.5)',
+                transition: '0.3s',
                 '&:hover': {
-                  backgroundColor: '#4f46e5'
+                  backgroundColor: '#4338ca',
+                  transform: 'scale(1.05)'
                 }
               }}
             >
               Book Venue
             </Button>
+
           </div>
+
         </form>
+
       </div>
+
     </div>
   )
 }

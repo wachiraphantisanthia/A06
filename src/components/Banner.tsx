@@ -6,24 +6,27 @@ export default function Banner() {
   const covers = ["/banner.png","/banner2.png","/banner3.png"]
   const [index,setIndex] = useState(0)
   return (
-    <div className="relative w-full h-[450px] overflow-hidden" onClick={()=> setIndex((prev)=> prev + 1)}>
+    <div 
+  className="relative w-full h-[700px] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_50px_120px_rgba(255,255,255,0.7)]"
+  onClick={()=> setIndex((prev)=> prev + 1)}
+>
       <Image
         key={index}
         src={covers[index % covers.length]}
         alt="covers"
         fill
-        className="object-cover"
+        className="object-cover"  
         priority
          unoptimized
       />
 
       
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl z-10 flex flex-col items-center justify-center text-center text-white px-4">
-        <h1 className="text-8xl font-bold drop-shadow-xl">
+        <h1 className="text-8xl font-bold drop-shadow-xl whitespace-nowrap">
           where every event finds its venue
         </h1>
 
-        <p className="mt-6 text-2xl drop-shadow-md">
+        <p className="mt-6 text-3xl drop-shadow-md whitespace-nowrap">
           Finding the perfect venue has never been easier. Whether it's a wedding,
           corporate event, or private party, we connecting people to the perfect place.
         </p>

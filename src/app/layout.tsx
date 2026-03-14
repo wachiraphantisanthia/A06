@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950`}>
         <nav className="bg-gray-900 p-4 fixed w-full top-0 z-50 border-b border-gray-800">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             {/* Logo ด้านซ้าย - ไม่ใช้ event handler */}
